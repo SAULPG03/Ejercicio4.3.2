@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import com.example.ejercicio432.FormattedTableCellFactory?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ejercicio432.FXMLTableViewController">
+    <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columns>
+            <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="CENTER" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Last Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email Address" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+        <sortOrder>
+            <fx:reference source="firstNameColumn" />
+        </sortOrder>
+    </TableView>
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <TextField fx:id="firstNameField" promptText="First Name" prefWidth="90"/>
+        <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="90"/>
+        <TextField fx:id="emailField" promptText="Email" prefWidth="150"/>
+        <Button text="Add" onAction="#addPerson"/>
+    </HBox>
+</GridPane>
+
+
